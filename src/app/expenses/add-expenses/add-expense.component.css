@@ -1,0 +1,58 @@
+div {
+  border-radius: 6px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+p {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+article {
+  padding: 0rem 0rem 1rem 1rem;
+  border: 2px solid #bdadcf;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  font-size: large;
+  color: #ab9ac0;
+  width: 6rem;
+}
+
+input,
+textarea {
+  width: 25%;
+  font: inherit;
+  padding: 0.15rem 0.25rem;
+  border-radius: 4px;
+  border: 1px solid #ab9ac0;
+  background-color: #d0c2e1;
+}
+
+.actions {
+  margin: 1rem 0 0;
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+button {
+  font-size: medium;
+  cursor: pointer;
+  border: 2px solid #bdadcf;
+  padding: 0.3rem 0.75rem;
+  background-color: transparent;
+}
+
+button[type="button"] {
+  color: #bdadcf;
+}
+
+button[type="button"]:hover,
+button[type="button"]:active {
+  color: #d0c2e1;
+}

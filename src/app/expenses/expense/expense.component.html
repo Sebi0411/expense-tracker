@@ -1,0 +1,14 @@
+<article class="expense">
+  <div class="expense-info">
+    <span class="expense-category">{{ expense.category }}</span>
+    <span class="expense-amount">{{ expense.amount | currency }}</span>
+  </div>
+  <div class="expense-buttons">
+    <button (click)="onEditExpense()">
+      <i class="fas fa-edit"></i>
+    </button>
+    <button (click)="deleteExpense()">
+      <i class="fas fa-trash"></i>
+    </button>
+  </div>
+</article>

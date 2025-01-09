@@ -1,0 +1,36 @@
+<section id="expenses">
+  <header>
+    <h2>
+      {{ day }}'s Expenses
+    </h2>
+  </header>
+
+  <ul>
+    @for (expense of expenses; track expense.id) { @if (expense.day === day) {
+    <li class="expense-item">
+      @if (isEditingExpense && selectedExpenseId === expense.id) {
+      <app-add-expense
+        [expenseId]="selectedExpense!.id"
+        [currentDay]="day"
+        (close)="onCloseEditExpense()"
+      />
+      } @else {
+      <app-expense
+        [expense]="expense"
+        [selected]="expense.id === selectedExpenseId"
+        (select)="onSelectExpense($event)"
+      />
+      }
+    </li>
+    } }
+  </ul>
+
+  @if (isAddingExpense) {
+  <app-add-expense [currentDay]="day" (close)="onCloseAddExpense()" />
+  } @else{
+  <button (click)="onStartAddExpense()">Add Expense</button>
+  }
+  <div class="day-total">
+    Total: <span class="total-amount">{{ dayTotal | currency }}</span>
+  </div>
+</section>

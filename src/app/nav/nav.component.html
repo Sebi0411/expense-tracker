@@ -1,0 +1,11 @@
+<nav>
+  <ul class="navbar">
+    @for (item of items; track item.id){
+    <li>
+      <button [class.active]="item.id === selectedItem" (click)="onSelectItem(item.id)">
+        <span>{{ item.abrev }}</span>
+      </button>
+    </li>
+    }
+  </ul>
+</nav>
