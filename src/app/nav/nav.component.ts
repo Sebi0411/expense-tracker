@@ -8,11 +8,11 @@ import { NAV_ITEMS } from '../nav-items';
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './nav.component.html',
-  styleUrl: './nav.component.css'
+  styleUrl: './nav.component.css',
 })
 export class NavComponent {
   @Output() select = new EventEmitter<string>();
-  @Input({required: true}) selectedItem!: string;
+  @Input({ required: true }) selectedItem!: string;
 
   items = NAV_ITEMS;
 
@@ -20,5 +20,4 @@ export class NavComponent {
     this.selectedItem = item;
     this.select.emit(item);
   }
-
 }

@@ -1,6 +1,6 @@
-import { Component, Input } from '@angular/core';
-import { ExpenseComponent } from "./expense/expense.component";
-import { AddExpenseComponent } from "./add-expenses/add-expense.component";
+import { Component, input, Input } from '@angular/core';
+import { ExpenseComponent } from './expense/expense.component';
+import { AddExpenseComponent } from './add-expenses/add-expense.component';
 import { ExpensesService } from './expenses.service';
 import { CommonModule } from '@angular/common';
 
@@ -9,11 +9,11 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [ExpenseComponent, AddExpenseComponent, CommonModule],
   templateUrl: './expenses.component.html',
-  styleUrl: './expenses.component.css'
+  styleUrl: './expenses.component.css',
 })
 export class ExpensesComponent {
-
-  @Input({required: true}) day!: string;
+  @Input({ required: true }) navId!: string;
+  // navId = input.required<string>();
 
   isAddingExpense = false;
   isEditingExpense = false;
@@ -23,7 +23,8 @@ export class ExpensesComponent {
   constructor(private expensesService: ExpensesService) {}
 
   ngOnChanges() {
-    this.dayTotal = this.expensesService.getTotalForDay(this.day);
+    this.dayTotal = this.expensesService.getTotalForDay(this.navId);
+    console.log('dayTotal', this.navId);
   }
 
   get expenses() {
@@ -47,7 +48,9 @@ export class ExpensesComponent {
   }
 
   get selectedExpense() {
-    return this.expenses.find((expense) => expense.id === this.selectedExpenseId);
+    return this.expenses.find(
+      (expense) => expense.id === this.selectedExpenseId
+    );
   }
 
   onSelectExpense(id: string) {

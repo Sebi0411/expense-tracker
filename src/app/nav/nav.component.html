@@ -2,9 +2,23 @@
   <ul class="navbar">
     @for (item of items; track item.id){
     <li>
-      <button [class.active]="item.id === selectedItem" (click)="onSelectItem(item.id)">
+      @if (item.id === 'Summary') {
+      <a
+        [routerLink]="['/Summary']"
+        [class.active]="item.id === selectedItem"
+        (click)="onSelectItem('Summary')"
+      >
+        <span>Summary</span>
+      </a>
+      } @else {
+      <a
+        [routerLink]="['/expenses', item.id]"
+        [class.active]="item.id === selectedItem"
+        (click)="onSelectItem(item.id)"
+      >
         <span>{{ item.abrev }}</span>
-      </button>
+      </a>
+      }
     </li>
     }
   </ul>

@@ -11,21 +11,20 @@
   text-align: center;
 }
 
-.navbar li button {
+.navbar li a {
   text-decoration: none;
-  color: black;
+  display: inline-block;
+  color: white;
   font-size: larger;
   border-radius: 6px;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   padding: 0.5rem 1rem;
   border-radius: 10px;
   cursor: pointer;
 }
 
-button:hover,
-button:active,
-.active {
+a:hover,
+a.active {
   background-color: #9965dd;
   color: #150722;
 }

@@ -1,50 +1,49 @@
 .expense {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-  }
-  
-  .expense-info {
-    flex: 2;
-    display: flex;
-    justify-content: space-between;
-    padding-right: 1rem;
-  }
-  
-  .expense-category {
-    font-weight: bold;
-  }
-  
-  .expense-amount {
-    font-style: bold;
-  }
-  
-  .expense-buttons {
-    flex: 0 0 auto;
-    display: flex;
-    gap: 1rem;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
 
-  .expense-buttons button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    padding: 0.2rem 0.5rem;
-    border:1px solid white;
-    background-color: #9965dd;
-    color: white;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-  
-  .expense-buttons i {
-    font-size: 1.2rem;
-  }
-  
-  .expense-buttons button:hover {
-    background-color: #7740aa;
-  }
-  
+.expense-info {
+  flex: 2;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 1rem;
+}
+
+.expense-category {
+  font-weight: bold;
+}
+
+.expense-amount {
+  font-style: bold;
+}
+
+.expense-buttons {
+  flex: 0 0 auto;
+  display: flex;
+  gap: 1rem;
+}
+
+.expense-buttons button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid white;
+  background-color: #9965dd;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.expense-buttons i {
+  font-size: 1.2rem;
+}
+
+.expense-buttons button:hover {
+  background-color: #7740aa;
+}

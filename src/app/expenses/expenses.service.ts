@@ -37,7 +37,12 @@ export class ExpensesService {
   }
 
   getExpense(Id: string) {
-    const defaultExpense: Expense = { id: '0', category: 'Unknown', amount: 0, day: 'Unknown' };
+    const defaultExpense: Expense = {
+      id: '0',
+      category: 'Unknown',
+      amount: 0,
+      day: 'Unknown',
+    };
     return this.expenses.find((task) => task.id === Id) || defaultExpense;
   }
 
@@ -57,7 +62,7 @@ export class ExpensesService {
 
   getTotalForDay(day: string): number {
     return this.expenses
-      .filter(expense => expense.day === day)
+      .filter((expense) => expense.day === day)
       .reduce((total, expense) => total + expense.amount, 0);
   }
 
@@ -69,8 +74,11 @@ export class ExpensesService {
     this.saveExpenses();
   }
 
-  updateExpense(id: string, updatedData: Partial<{ category: string; amount: number }>) {
-    const expense = this.expenses.find(e => e.id === id);
+  updateExpense(
+    id: string,
+    updatedData: Partial<{ category: string; amount: number }>
+  ) {
+    const expense = this.expenses.find((e) => e.id === id);
     if (expense) {
       Object.assign(expense, updatedData);
     }

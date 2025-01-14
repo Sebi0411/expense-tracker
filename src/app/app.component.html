@@ -1,16 +1,22 @@
 <app-header></app-header>
-<app-nav [selectedItem]="selectedItem" (select)="onSelectItem($event)"></app-nav>
+<app-nav [selectedItem]="selectedItem" (select)="onSelectItem($event)">
+</app-nav>
 <main>
-  @if (selectedItem === '') { } @else if (selectedItem === 'Summary') {
-    <app-summary></app-summary>
-    <div class="nav-buttons">
-      <button (click)="onPreviousItem()" *ngIf="!isFirstItem; else placeholder">{{previousItem}}</button>
-      <ng-template #placeholder>
-        <span></span>
-      </ng-template>
-      <button (click)="onNextItem()" *ngIf="!isLastItem">{{nextItem}}</button>
-    </div>
-  } @else {
+  @if (selectedItem === '') { } @else {
+  <!-- if (selectedItem === 'Summary')  -->
+  <!-- <app-summary></app-summary> -->
+  <router-outlet />
+  <div class="nav-buttons">
+    <button (click)="onPreviousItem()" *ngIf="!isFirstItem; else placeholder">
+      {{ previousItem }}
+    </button>
+    <ng-template #placeholder>
+      <span></span>
+    </ng-template>
+    <button (click)="onNextItem()" *ngIf="!isLastItem">{{ nextItem }}</button>
+  </div>
+  }
+  <!-- } @else {
     <app-expenses [day]="selectedItem"></app-expenses>
     <div class="nav-buttons">
       <button (click)="onPreviousItem()" *ngIf="!isFirstItem; else placeholder">{{previousItem}}</button>
@@ -19,5 +25,5 @@
       </ng-template>
       <button (click)="onNextItem()" *ngIf="!isLastItem">{{nextItem}}</button>
     </div>
-  }
+  } -->
 </main>

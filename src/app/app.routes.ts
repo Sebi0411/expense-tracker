@@ -1,9 +1,15 @@
 import { Routes } from '@angular/router';
-import { ExpenseListComponent } from './expenses/expense/expense.component';
+import { ExpenseComponent } from './expenses/expense/expense.component';
 import { SummaryComponent } from './summary/summary.component';
+import { ExpensesComponent } from './expenses/expenses.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'mon', pathMatch: 'full' },
-  { path: ':day', component: ExpenseListComponent },
-  { path: 'summary', component: SummaryComponent }
+  {
+      path: 'expenses/:navId',
+      component: ExpensesComponent,
+  },
+  {
+      path: 'Summary',
+      component: SummaryComponent
+  },
 ];

@@ -10,7 +10,6 @@ import { ExpensesService } from '../expenses/expenses.service';
   styleUrl: './summary.component.css',
 })
 export class SummaryComponent {
-
   expensesByDay: { [key: string]: { category: string; amount: number }[] } = {};
   days: string[] = [];
   weeklyTotal: number = 0;
@@ -22,5 +21,4 @@ export class SummaryComponent {
     this.days = Object.keys(this.expensesByDay);
     this.weeklyTotal = this.expensesService.getTotalAmount();
   }
-
 }

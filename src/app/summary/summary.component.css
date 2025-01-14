@@ -1,67 +1,66 @@
 .summary-table {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    overflow: hidden;
-  }
-  
-  .day-row {
-    display: flex;
-    border-bottom: 1px solid #ddd; /* Border between days */
-  }
-  
-  .day-cell {
-    flex: 0 0 30%; /* Smaller width for the day column */
-    padding: 10px;
-    font-weight: bold;
-    border-right: 1px solid #ddd;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .expenses-cell {
-    flex: 1; /* Take the remaining space for the expenses */
-    padding: 10px;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: fixed; /* Enforces fixed column widths */
-  }
-  
-  td {
-    padding: 5px;
-    text-align: center; /* Center text horizontally */
-    vertical-align: middle; /* Center text vertically */
-    border-bottom: 1px solid #eee; /* Border for all rows */
-  }
-  
-  td:first-child {
-    width: 60%; /* Fixed width for the category column */
-    border-right: 1px solid #ddd; /* Visible border between category and amount */
-  }
-  
-  td:last-child {
-    width: 40%; /* Fixed width for the amount column */
-  }
-  
-  tr:last-child td {
-    border-bottom: none; /* Remove border under the last expense of a day */
-  }
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
 
-  .weekly-total {
-    margin-top: 1rem;
-    font-size: 1.2em;
-    font-weight: bold;
-    text-align: left;
-  }
-  
-  .total-amount {
-    color: #4caf50; /* Green color for emphasis */
-  }
-  
+.day-row {
+  display: flex;
+  border-bottom: 1px solid #ddd; /* Border between days */
+}
+
+.day-cell {
+  flex: 0 0 30%; /* Smaller width for the day column */
+  padding: 10px;
+  font-weight: bold;
+  border-right: 1px solid #ddd;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.expenses-cell {
+  flex: 1; /* Take the remaining space for the expenses */
+  padding: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; /* Enforces fixed column widths */
+}
+
+td {
+  padding: 5px;
+  text-align: center; /* Center text horizontally */
+  vertical-align: middle; /* Center text vertically */
+  border-bottom: 1px solid #eee; /* Border for all rows */
+}
+
+td:first-child {
+  width: 60%; /* Fixed width for the category column */
+  border-right: 1px solid #ddd; /* Visible border between category and amount */
+}
+
+td:last-child {
+  width: 40%; /* Fixed width for the amount column */
+}
+
+tr:last-child td {
+  border-bottom: none; /* Remove border under the last expense of a day */
+}
+
+.weekly-total {
+  margin-top: 1rem;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: left;
+}
+
+.total-amount {
+  color: #4caf50; /* Green color for emphasis */
+}

@@ -1,17 +1,15 @@
 <section id="expenses">
   <header>
-    <h2>
-      {{ day }}'s Expenses
-    </h2>
+    <h2>{{ navId }}'s Expenses</h2>
   </header>
 
   <ul>
-    @for (expense of expenses; track expense.id) { @if (expense.day === day) {
+    @for (expense of expenses; track expense.id) { @if (expense.day === navId) {
     <li class="expense-item">
       @if (isEditingExpense && selectedExpenseId === expense.id) {
       <app-add-expense
         [expenseId]="selectedExpense!.id"
-        [currentDay]="day"
+        [currentDay]="navId"
         (close)="onCloseEditExpense()"
       />
       } @else {
@@ -26,7 +24,7 @@
   </ul>
 
   @if (isAddingExpense) {
-  <app-add-expense [currentDay]="day" (close)="onCloseAddExpense()" />
+  <app-add-expense [currentDay]="navId" (close)="onCloseAddExpense()" />
   } @else{
   <button (click)="onStartAddExpense()">Add Expense</button>
   }
