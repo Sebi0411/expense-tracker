@@ -64,3 +64,17 @@ tr:last-child td {
 .total-amount {
   color: #4caf50; /* Green color for emphasis */
 }
+
+button {
+  margin-top: 1rem;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}

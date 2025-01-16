@@ -12,6 +12,9 @@
     </div>
   </div>
 </div>
+
 <div class="weekly-total">
   Weekly Total: <span class="total-amount">{{ weeklyTotal | currency }}</span>
 </div>
+
+<button (click)="exportToExcel()">Export to Excel</button>
