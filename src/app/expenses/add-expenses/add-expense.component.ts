@@ -2,14 +2,14 @@ import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Inject, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ExpensesService } from '../expenses.service';
-import { Expense } from '../expense/expense.model';
+import { Expense } from '../../shared/models/expense.model';
 
 @Component({
   selector: 'app-add-expense',
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './add-expense.component.html',
-  styleUrl: './add-expense.component.css',
+  styleUrl: './add-expense.component.scss',
 })
 export class AddExpenseComponent {
   @Output() close = new EventEmitter<void>();

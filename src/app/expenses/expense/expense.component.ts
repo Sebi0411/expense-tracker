@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
-import { Expense } from './expense.model';
+import { Expense } from '../../shared/models/expense.model';
 import { ExpensesService } from '../expenses.service';
 
 @Component({
@@ -17,7 +17,7 @@ import { ExpensesService } from '../expenses.service';
   standalone: true,
   imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './expense.component.html',
-  styleUrl: './expense.component.css',
+  styleUrl: './expense.component.scss',
 })
 export class ExpenseComponent {
   @Input({ required: true }) expense!: Expense;

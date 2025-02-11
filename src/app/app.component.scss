@@ -1,7 +1,7 @@
 main {
   width: 90%;
   max-width: 50rem;
-  margin: 5rem auto;
+  margin: auto;
   display: grid;
   grid-auto-flow: row;
   gap: 2rem;
@@ -13,7 +13,7 @@ main {
   align-items: center;
   position: relative;
   margin-top: 20px;
-  /* padding: 0 10px; Add some spacing to the edges */
+  /* padding: 0 10px;*/
 }
 
 .nav-buttons button {

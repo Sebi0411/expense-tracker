@@ -3,6 +3,10 @@
     <h2>{{ navId }}'s Expenses</h2>
   </header>
 
+  <div class="day-total">
+    Total: <span class="total-amount">{{ dayTotal | currency }}</span>
+  </div>
+
   <ul>
     @for (expense of expenses; track expense.id) { @if (expense.day === navId) {
     <li class="expense-item">
@@ -28,7 +32,4 @@
   } @else{
   <button (click)="onStartAddExpense()">Add Expense</button>
   }
-  <div class="day-total">
-    Total: <span class="total-amount">{{ dayTotal | currency }}</span>
-  </div>
 </section>

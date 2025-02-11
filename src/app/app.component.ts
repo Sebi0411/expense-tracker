@@ -1,27 +1,20 @@
-import { Component, DestroyRef, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavComponent } from './nav/nav.component';
 import { HeaderComponent } from './header/header.component';
-import { ExpensesComponent } from './expenses/expenses.component';
 import { NAV_ITEMS } from './nav-items';
 import { CommonModule } from '@angular/common';
-import { SummaryComponent } from './summary/summary.component';
-import {
-  ActivatedRoute,
-  Router,
-  RouterLink,
-  RouterOutlet,
-} from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [NavComponent, HeaderComponent, CommonModule, RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
   title = 'expense-tracker';
-  selectedItem = '';
+  selectedItem = 'Monday';
   Items = NAV_ITEMS;
   // activatedRoute = inject(ActivatedRoute);
   // private destroyRef = inject(DestroyRef);
@@ -31,18 +24,6 @@ export class AppComponent {
   onSelectItem(Item: string) {
     this.selectedItem = Item;
   }
-
-  //   ngOnInit(): void {
-  //     console.log('selectedItem', this.selectedItem);
-  //     const subscription = this.activatedRoute.paramMap.subscribe({
-  //       next: (paramMap) => {
-  //       this.selectedItem = paramMap.get('navId') || '';
-  //       console.log('IteParamms', paramMap.get('navId'));
-  //     },
-  //   });
-
-  //   this.destroyRef.onDestroy(() => subscription.unsubscribe());
-  // }
 
   get isFirstItem(): boolean {
     return this.selectedItem === this.Items[0].id;

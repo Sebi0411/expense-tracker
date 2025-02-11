@@ -1,4 +1,9 @@
 <h2>Your weekly expense summary</h2>
+
+<div class="weekly-total">
+  Weekly Total: <span class="total-amount">{{ weeklyTotal | currency }}</span>
+</div>
+
 <div class="summary-table">
   <div *ngFor="let day of days" class="day-row">
     <div class="day-cell">{{ day }}</div>
@@ -11,10 +16,6 @@
       </table>
     </div>
   </div>
-</div>
-
-<div class="weekly-total">
-  Weekly Total: <span class="total-amount">{{ weeklyTotal | currency }}</span>
 </div>
 
 <button (click)="exportToExcel()">Export to Excel</button>

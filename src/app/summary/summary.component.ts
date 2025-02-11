@@ -9,10 +9,9 @@ import { saveAs } from 'file-saver';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './summary.component.html',
-  styleUrl: './summary.component.css',
+  styleUrl: './summary.component.scss',
 })
 export class SummaryComponent {
-
   expensesByDay: { [key: string]: { category: string; amount: number }[] } = {};
   days: string[] = [];
   weeklyTotal: number = 0;
@@ -28,7 +27,7 @@ export class SummaryComponent {
   exportToExcel(): void {
     const data: { Day: string; Category: string; Amount: number }[] = [];
     for (const day of this.days) {
-      this.expensesByDay[day].forEach(expense => {
+      this.expensesByDay[day].forEach((expense) => {
         data.push({
           Day: day,
           Category: expense.category,
@@ -39,7 +38,10 @@ export class SummaryComponent {
     const worksheet = XLSX.utils.json_to_sheet(data);
     const workbook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(workbook, worksheet, 'Weekly Expenses');
-    const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+    const excelBuffer = XLSX.write(workbook, {
+      bookType: 'xlsx',
+      type: 'array',
+    });
     const blob = new Blob([excelBuffer], { type: 'application/octet-stream' });
     saveAs(blob, 'Weekly_Expenses.xlsx');
   }

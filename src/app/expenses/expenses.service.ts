@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Expense, NewExpenseData } from './expense/expense.model';
+import { Expense, NewExpenseData } from '../shared/models/expense.model';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ExpensesService {
+  private expensesSubject = new BehaviorSubject<any[]>([]);
+  expenses$ = this.expensesSubject.asObservable();
   private expenses = [
     {
       id: 'e1',
@@ -71,6 +74,7 @@ export class ExpensesService {
       id: Math.random().toString(),
       ...expenseData,
     });
+    this.expensesSubject.next(this.expenses);
     this.saveExpenses();
   }
 
@@ -82,12 +86,14 @@ export class ExpensesService {
     if (expense) {
       Object.assign(expense, updatedData);
     }
+    this.expensesSubject.next(this.expenses);
     localStorage.setItem('expenses', JSON.stringify(this.expenses));
   }
 
   removeExpense(Id: string) {
     this.expenses = this.expenses.filter((task) => task.id !== Id);
     this.saveExpenses();
+    this.expensesSubject.next(this.expenses);
   }
 
   private saveExpenses() {

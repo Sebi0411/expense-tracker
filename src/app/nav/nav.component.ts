@@ -8,7 +8,7 @@ import { NAV_ITEMS } from '../nav-items';
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './nav.component.html',
-  styleUrl: './nav.component.css',
+  styleUrl: './nav.component.scss',
 })
 export class NavComponent {
   @Output() select = new EventEmitter<string>();
