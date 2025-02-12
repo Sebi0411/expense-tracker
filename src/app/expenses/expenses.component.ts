@@ -29,8 +29,6 @@ export class ExpensesComponent {
     this.expensesSubscription = this.expensesService.expenses$.subscribe(() => {
       this.updateDayTotal();
     });
-
-    this.updateDayTotal();
   }
 
   ngOnChanges() {
