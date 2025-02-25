@@ -6,10 +6,12 @@ export const routes: Routes = [
   { path: '', redirectTo: '/expenses/Monday', pathMatch: 'full' },
   {
     path: 'expenses/:navId',
-    component: ExpensesComponent,
+    //component: ExpensesComponent,
+    loadComponent: () => import('./expenses/expenses.component').then(mod => mod.ExpensesComponent),
   },
   {
     path: 'Summary',
-    component: SummaryComponent,
+    // component: SummaryComponent,
+    loadComponent: () => import('./summary/summary.component').then(mod => mod.SummaryComponent)
   },
 ];
