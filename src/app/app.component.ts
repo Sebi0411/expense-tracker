@@ -14,7 +14,7 @@ import { Router, RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'expense-tracker';
-  selectedItem = 'Monday';
+  selectedItem = '';
   Items = NAV_ITEMS;
   // activatedRoute = inject(ActivatedRoute);
   // private destroyRef = inject(DestroyRef);

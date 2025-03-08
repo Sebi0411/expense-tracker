@@ -14,7 +14,6 @@ import { Subscription } from 'rxjs';
 })
 export class ExpensesComponent {
   @Input({ required: true }) navId!: string;
-  // navId = input.required<string>();
 
   isAddingExpense = false;
   isEditingExpense = false;
@@ -42,7 +41,8 @@ export class ExpensesComponent {
   }
 
   get expenses() {
-    return this.expensesService.getExpenses();
+    console.log(this.expensesService.getExpensesByUser());
+    return this.expensesService.getExpensesByUser();
   }
 
   onStartAddExpense() {

@@ -1,0 +1,23 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h2>Login</h2>
+  
+    <div class="control-row">
+      <div class="control no-margin">
+        <label for="email">Email</label>
+        <input id="email" type="email" formControlName="email" />
+      </div>
+      <p class="control-error" *ngIf="emailIsInvalid">Invalid email address.</p>
+  
+      <div class="control no-margin">
+        <label for="password">Password</label>
+        <input id="password" type="password" formControlName="password" />
+      </div>
+      <p class="control-error" *ngIf="passwordIsInvalid">
+        Password must be at least 6 characters long and contain a question mark.
+      </p>
+  
+      <button class="button" [disabled]="form.invalid">Login</button>
+    </div>
+  
+    <p>Don't have an account? <a routerLink="/signup">Sign up</a></p>
+  </form>
