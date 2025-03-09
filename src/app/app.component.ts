@@ -17,7 +17,8 @@ export class AppComponent {
   title = 'expense-tracker';
   selectedItem = 'Monday';
   Items = NAV_ITEMS;
-  isAuthRoute = false;
+  isAuthRoute = true;
+  isInitialLoad = true;
 
   constructor(private router: Router) {
     const item = sessionStorage.getItem('selectedItem');
@@ -28,7 +29,11 @@ export class AppComponent {
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event: any) => {
-        this.isAuthRoute = event.url === '/login' || event.url === '/signup';
+        this.isAuthRoute =
+          event.url === '/login' ||
+          event.url === '/signup' ||
+          event.url === '/';
+        this.isInitialLoad = false;
       });
   }
 
