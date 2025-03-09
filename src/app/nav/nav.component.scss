@@ -1,14 +1,21 @@
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 2rem;
+}
+
 .navbar {
-  position: relative;
-  z-index: 0;
   list-style-type: none;
   display: flex;
   gap: 1rem;
   align-items: center;
-  width: 90%;
   max-width: 50rem;
-  margin: -0.4rem auto -1rem auto;
+  margin: -0.4rem auto 0rem auto;
+  transform: translateX(3rem);
   text-align: center;
+  flex-grow: 1;
 }
 
 .navbar li a {
@@ -17,7 +24,6 @@
   color: white;
   font-size: larger;
   border-radius: 6px;
-  overflow: hidden;
   padding: 0.5rem 1rem;
   border-radius: 10px;
   cursor: pointer;
@@ -27,4 +33,19 @@ a:hover,
 a.active {
   background-color: #9965dd;
   color: #150722;
+}
+
+.logout-button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  margin-top: -0.6rem;
+  padding: 0.7rem 1rem;
+  font-size: larger;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background-color: #cc0000;
 }

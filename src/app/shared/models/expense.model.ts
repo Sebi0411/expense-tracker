@@ -1,5 +1,6 @@
 export interface Expense {
   id: string;
+  userEmail: string;
   category: string;
   amount: number;
   day: string;

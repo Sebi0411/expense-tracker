@@ -1,10 +1,14 @@
 <app-header></app-header>
-<app-nav [selectedItem]="selectedItem" (select)="onSelectItem($event)">
+<app-nav
+  *ngIf="!isAuthRoute"
+  [selectedItem]="selectedItem"
+  (select)="onSelectItem($event)"
+>
 </app-nav>
 <main>
   @if (selectedItem === '') { } @else {
   <router-outlet />
-  <div class="nav-buttons">
+  <div class="nav-buttons" *ngIf="!isAuthRoute">
     <button (click)="onPreviousItem()" *ngIf="!isFirstItem; else placeholder">
       {{ previousItem }}
     </button>
