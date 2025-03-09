@@ -4,6 +4,7 @@ import { AddExpenseComponent } from './add-expenses/add-expense.component';
 import { ExpensesService } from './expenses.service';
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
+import { AuthService } from '../shared/services/auth.service';
 
 @Component({
   selector: 'app-expenses',
@@ -19,10 +20,17 @@ export class ExpensesComponent {
   isEditingExpense = false;
   selectedExpenseId: string = '';
   dayTotal: number = 0;
+  username: string = '';
 
   private expensesSubscription!: Subscription;
 
-  constructor(private expensesService: ExpensesService) {}
+  constructor(
+    private expensesService: ExpensesService,
+    private authService: AuthService
+  ) {
+    const user = authService.getCurrentUser();
+    this.username = user ? user.nickname : '';
+  }
 
   ngOnInit() {
     this.expensesSubscription = this.expensesService.expenses$.subscribe(() => {
@@ -41,7 +49,6 @@ export class ExpensesComponent {
   }
 
   get expenses() {
-    console.log(this.expensesService.getExpensesByUser());
     return this.expensesService.getExpensesByUser();
   }
 

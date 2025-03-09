@@ -53,6 +53,7 @@ export class AuthService {
   logout() {
     this.currentUser = null;
     localStorage.removeItem('currentUser');
+    sessionStorage.removeItem('selectedItem');
   }
 
   getCurrentUser(): User | null {

@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { NAV_ITEMS } from '../nav-items';
+import { AuthService } from '../shared/services/auth.service';
 
 @Component({
   selector: 'app-nav',
@@ -16,8 +17,16 @@ export class NavComponent {
 
   items = NAV_ITEMS;
 
+  constructor(private authService: AuthService, private router: Router) {}
+
   onSelectItem(item: string) {
     this.selectedItem = item;
     this.select.emit(item);
+  }
+
+  onLogout() {
+    this.authService.logout();
+    this.select.emit(this.items[0].id);
+    this.router.navigate(['/login']);
   }
 }

@@ -3,7 +3,8 @@ import { NavComponent } from './nav/nav.component';
 import { HeaderComponent } from './header/header.component';
 import { NAV_ITEMS } from './nav-items';
 import { CommonModule } from '@angular/common';
-import { Router, RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -14,15 +15,26 @@ import { Router, RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'expense-tracker';
-  selectedItem = '';
+  selectedItem = 'Monday';
   Items = NAV_ITEMS;
-  // activatedRoute = inject(ActivatedRoute);
-  // private destroyRef = inject(DestroyRef);
+  isAuthRoute = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    const item = sessionStorage.getItem('selectedItem');
+    if (item) {
+      this.selectedItem = JSON.parse(item);
+    }
+
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe((event: any) => {
+        this.isAuthRoute = event.url === '/login' || event.url === '/signup';
+      });
+  }
 
   onSelectItem(Item: string) {
     this.selectedItem = Item;
+    sessionStorage.setItem('selectedItem', JSON.stringify(Item));
   }
 
   get isFirstItem(): boolean {

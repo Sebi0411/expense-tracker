@@ -42,9 +42,6 @@ export class ExpensesService {
   getExpensesByUser() {
     const currentUser = this.authService.getCurrentUser();
     if (!currentUser) return [];
-    console.log(this.authService);
-    console.log(currentUser);
-    console.log(this.expenses);
     return this.expenses.filter(
       (expense) => expense.userEmail === currentUser.email
     );

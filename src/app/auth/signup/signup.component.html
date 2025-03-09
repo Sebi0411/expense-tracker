@@ -1,31 +1,28 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <h2>Sign Up</h2>
-  
-    <div class="control-row">
-      <div class="control no-margin">
-        <label for="email">Email</label>
-        <input id="email" type="email" formControlName="email" />
-      </div>
-      <p class="control-error" *ngIf="emailIsInvalid">Invalid email address.</p>
-  
-      <div class="control no-margin">
-        <label for="password">Password</label>
-        <input id="password" type="password" formControlName="password" />
-      </div>
-      <p class="control-error" *ngIf="passwordIsInvalid">
-        Password must be at least 6 characters long and contain a question mark.
-      </p>
-  
-      <div class="control no-margin">
-        <label for="nickname">Nickname</label>
-        <input id="nickname" type="text" formControlName="nickname" />
-      </div>
-      <p class="control-error" *ngIf="nicknameIsInvalid">
-        Nickname must be at least 3 characters long.
-      </p>
-  
-      <button class="button" [disabled]="form.invalid">Sign Up</button>
-    </div>
-  
-    <p>Already have an account? <a routerLink="/login">Login</a></p>
-  </form>
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="signup-form">
+  <h2>Sign Up</h2>
+
+  <div class="control">
+    <label for="email">Email</label>
+    <input id="email" type="email" formControlName="email" />
+    <p class="control-error" *ngIf="emailIsInvalid">Invalid email address.</p>
+  </div>
+
+  <div class="control">
+    <label for="password">Password</label>
+    <input id="password" type="password" formControlName="password" />
+    <p class="control-error" *ngIf="passwordIsInvalid">
+      Password must be at least 6 characters long and contain a number.
+    </p>
+  </div>
+
+  <div class="control">
+    <label for="nickname">Nickname</label>
+    <input id="nickname" type="text" formControlName="nickname" />
+    <p class="control-error" *ngIf="nicknameIsInvalid">Nickname is required.</p>
+  </div>
+
+  <button class="signup-button">Sign Up</button>
+  <p class="control-error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+  <p>Already have an account? <a routerLink="/login">Login</a></p>
+</form>

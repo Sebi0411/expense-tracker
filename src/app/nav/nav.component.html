@@ -1,6 +1,6 @@
-<nav>
+<nav class="navbar-container">
   <ul class="navbar">
-    @for (item of items; track item.id){
+    @for (item of items; track item.id) {
     <li>
       @if (item.id === 'Summary') {
       <a
@@ -22,4 +22,5 @@
     </li>
     }
   </ul>
+  <button class="logout-button" (click)="onLogout()">Log out</button>
 </nav>
